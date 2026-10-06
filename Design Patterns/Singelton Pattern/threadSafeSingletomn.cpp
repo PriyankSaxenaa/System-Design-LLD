@@ -7,7 +7,7 @@ class Singleton {
 private:
 //code working properly on online compiler
     static Singleton* instance;
-    static mutex mtx;
+    // static mutex mtx;
 
     Singleton() { 
         cout << "Singleton Constructor Called!" << endl; 
@@ -17,7 +17,7 @@ public:
 
     static Singleton* getInstance() {
         if (instance == nullptr) {
-            lock_guard<mutex> lock(mtx);
+            // lock_guard<mutex> lock(mtx);
             if (instance == nullptr) {
                 instance = new Singleton();
             }
@@ -28,7 +28,7 @@ public:
 
 
 Singleton* Singleton::instance = nullptr;
-mutex Singleton::mtx;
+// mutex Singleton::mtx;
 
 int main() {
     Singleton* s1 = Singleton::getInstance();
